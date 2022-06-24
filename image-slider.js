@@ -12,11 +12,33 @@ const arrowLeft = document.getElementById('image-slider-arrow-left');
 const arrowRight = document.getElementById('image-slider-arrow-right');
   arrowRight.addEventListener('click', rotateCarousel);
 
+// rotates imgs based on arrow clicks
 function rotateCarousel(e) {
   let selectedArrow = e.composedPath()[0].id;
-  console.log(selectedArrow);
+  let currentImg = document.querySelector('.img-displayed');
+  let previousImg = currentImg.previousSibling;
+  let nextImg = currentImg.nextSibling;
+
+  if (previousImg == null) {
+    previousImg = imgCarousel.lastChild;
+  } else if (nextImg == null) {
+    nextImg = imgCarousel.firstChild;
+  }
+
+  if (selectedArrow == 'image-slider-arrow-right') {
+    currentImg.classList.remove('img-displayed');
+    currentImg.classList.add('img-hidden');
+    nextImg.classList.remove('img-hidden');
+    nextImg.classList.add('img-displayed');
+  } else if (selectedArrow == 'image-slider-arrow-left') {
+    currentImg.classList.remove('img-displayed');
+    currentImg.classList.add('img-hidden');
+    previousImg.classList.remove('img-hidden');
+    previousImg.classList.add('img-displayed');
+  }
 }
 
+// automatically rotates through and displays imgs
 function carouselController() {
   createImgLibrary();
   displayFirstImg();
@@ -44,8 +66,6 @@ function displayFirstImg() {
 function startCarousel() {
   let selectedImg = document.querySelector('.img-displayed');
   let nextImg = selectedImg.nextSibling;
-  console.log(selectedImg);
-  console.log(nextImg);
 
   if (selectedImg == null || nextImg == null) {
     imgCarousel.lastChild.classList.remove('img-displayed');
