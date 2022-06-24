@@ -5,10 +5,9 @@ body {
 #image-slider-container {
   display: flex;
   flex-flow: row nowrap;
-  width: 80vw;
+  width: 60vw;
   height: 90vh;
   margin: auto;
-  margin-top: 2.5%;
   background-color: #B5D99C;
   align-content: center;
   justify-content: center;
@@ -28,7 +27,7 @@ body {
   align-content: center;
   justify-content: center;
   align-items: center;
-  width: 70vw;
+  width: 55vw;
   height: 85vh;
   background-color: #FFFF82;
 }
@@ -42,7 +41,15 @@ body {
 }
 
 #nav-bar {
-
+  display: flex;
+  flex-flow: row nowrap;
+  align-content: center;
+  justify-content: center;
+  background-color: #FFFF82;
+  width: 16vw;
+  height: 5vh;
+  margin: auto;
+  margin-top: 1%;
 }
 
 #image-slider-arrow-left:hover, #image-slider-arrow-right:hover {
@@ -53,8 +60,8 @@ body {
   display: flex;
   visibility: hidden;
   position: absolute;
-  width: 61vw;
-  height: 78vh;
+  width: 50vw;
+  height: 85vh;
 }
 
 .img-displayed {
@@ -62,6 +69,14 @@ body {
   flex: 1 1 auto;
   visibility: visible;
   position: absolute;
-  width: 61vw;
-  height: 82vh;
+  width: 42vw;
+  height: 80vh;
+}
+
+.svg-icon {
+  filter: invert(54%) sepia(38%) saturate(960%) hue-rotate(314deg) brightness(90%) contrast(100%);
+}
+
+.svg-icon-selected {
+  filter: invert(4%) sepia(70%) saturate(2184%) hue-rotate(249deg) brightness(119%) contrast(108%);
 }
