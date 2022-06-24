@@ -24,6 +24,9 @@ body {
 
 #image-carousel {
   display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
   width: 70vw;
   height: 70vh;
   background-color: #FFFF82;
@@ -43,4 +46,12 @@ body {
 
 #image-slider-arrow-left:hover, #image-slider-arrow-right:hover {
   transform: rotate(360deg);
+}
+
+.img-hidden {
+  display: flex;
+  visibility: hidden;
+  position: absolute;
+  width: 60vw;
+  height: 66vh;
 }
