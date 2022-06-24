@@ -55,3 +55,11 @@ body {
   width: 60vw;
   height: 66vh;
 }
+
+.img-displayed {
+  display: flex;
+  visibility: visible;
+  position: absolute;
+  width: 61vw;
+  height: 68vh;
+}

@@ -19,11 +19,10 @@ function rotateCarousel(e) {
 
 function carouselController() {
   createImgLibrary();
-  startCarousel();
+  displayFirstImg();
 }
 
 function createImgLibrary() {
-  console.log(imgArray);
   let img;
   for (let i = 0; i < imgArray.length; i++) {
     img = new Image();
@@ -37,8 +36,30 @@ function appendImg(img) {
   imgCarousel.appendChild(img);
 }
 
+function displayFirstImg() {
+  imgCarousel.childNodes[0].classList.remove('img-hidden');
+  imgCarousel.childNodes[0].classList.add('img-displayed');
+}
+
 function startCarousel() {
-  
+  let selectedImg = document.querySelector('.img-displayed');
+  let nextImg = selectedImg.nextSibling;
+  console.log(selectedImg);
+  console.log(nextImg);
+
+  if (selectedImg == null || nextImg == null) {
+    imgCarousel.lastChild.classList.remove('img-displayed');
+    imgCarousel.lastChild.classList.add('img-hidden');
+    imgCarousel.firstChild.classList.add('img-displayed');
+    imgCarousel.firstChild.classList.remove('img-hidden');
+  } else {
+    selectedImg.classList.remove('img-displayed');
+    selectedImg.classList.add('img-hidden');
+
+    nextImg.classList.remove('img-hidden');
+    nextImg.classList.add('img-displayed');
+  }
 }
 
 carouselController();
+setInterval(startCarousel, 5000);
